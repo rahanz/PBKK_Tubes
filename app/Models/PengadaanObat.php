@@ -15,7 +15,7 @@ class PengadaanObat extends Model
         'kategori_obat',
         'deskripsi_obat',
         'stok_obat',
-        'tangal_masuk_obat',
+        'tanggal_masuk_obat',
         'pemasok_obat'
     ];
     protected $table = 'pengadaan';

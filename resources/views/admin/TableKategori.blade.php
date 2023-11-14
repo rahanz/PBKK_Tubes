@@ -19,6 +19,7 @@
                                     <tr>
                                         <th>Kategori Obat</th>
                                         <th>Deskripsi</th>
+                                        <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -27,10 +28,12 @@
                                             <td>{{ $dataKategori->kategori }}</td>
                                             <td>{{ $dataKategori->deskripsi }}</td>
                                             <td>
-                                                <button type="button"
-                                                    class="btn btn-block btn-warning btn-sm">Edit</button>
-                                                <button type="button"
-                                                    class="btn btn-block btn-danger btn-sm">Hapus</button>
+                                                <div class="btn-group" role="group">
+                                                    <a href="#" class="btn btn-warning btn-sm mr-3"
+                                                        data-toggle="modal" data-target="#editModal"
+                                                        data-id="{{ $dataKategori->id }}">Edit Data</a>
+                                                    <button type="button" class="btn btn-danger btn-sm">Hapus Data</button>
+                                                </div>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -52,4 +55,7 @@
             </div> <!-- row -->
         </div> <!-- container-fluid -->
     </section>
+
+    {{-- Modal --}}
+
 @endsection

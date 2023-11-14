@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::create('pemasok', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('pemasok_obat')->unique();
+            $table->string('alamat_pemasok');
+            $table->integer('no_telepon');
         });
     }
 

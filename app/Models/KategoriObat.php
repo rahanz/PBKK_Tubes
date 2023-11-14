@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class KategoriObat extends Model
 {
-    use HasFactory;
+    public $timestamps = false;
+    protected $table = 'kategori_obat';
+    protected $fillable = ['kategori','deskripsi'];
 }

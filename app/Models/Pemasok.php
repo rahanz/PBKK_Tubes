@@ -7,5 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pemasok extends Model
 {
-    use HasFactory;
+    public $timestamps = false;
+    protected $table = 'pemasok';
+    protected $fillable = 
+    [
+        'pemasok_obat',
+        'alamat_pemasok',
+        'no_telepon'
+    ];
 }

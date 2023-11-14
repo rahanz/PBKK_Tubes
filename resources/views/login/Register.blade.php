@@ -30,7 +30,7 @@
                             <input type="password" class="form-control" id="confirmPassword" name="confirmPassword"
                                 required>
                         </div>
-                        <button type="submit" class="btn btn-success btn-block">Register</button>
+                        <button type="submit" class="btn btn-success btn-block mt-3">Register</button>
                     </form>
                 </div>
             </div>

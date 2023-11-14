@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\KategoriObat;
+use App\Models\Pemasok;
 use App\Models\PengadaanObat;
 use Illuminate\Http\Request;
 
@@ -41,5 +43,37 @@ class InputController extends Controller
         ]);
 
         return redirect()->route('pengadaan')->with('success', 'Data persediaan obat berhasil ditambahkan.');
+    }
+
+    public function input_kategori(Request $request)
+    {
+        $request->validate
+        ([
+            'nama_kategori' => 'required|unique:kategori_obat,kategori',
+            'deskripsi_kategori' => 'required
+        ']);
+        KategoriObat::create
+        ([
+            'kategori' => $request->nama_kategori,
+            'deskripsi' => $request->deskripsi_kategori
+        ]);
+        return redirect()->route('kategori_obat')->with('success', 'Kategori obat berhasil ditambahkan.');
+    }
+
+    public function input_pemasok(Request $request)
+    {
+        $request->validate
+        ([
+            'PemasokObat' => 'required|unique:pemasok,pemasok_obat',
+            'AlamatPemasok' => 'required',
+            'NoTelepon' => 'required|integer|min:0'
+        ]);
+        Pemasok::create
+        ([
+            'pemasok_obat' => $request->PemasokObat,
+            'alamat_pemasok' => $request->AlamatPemasok,
+            'no_telepon' => $request->NoTelepon
+        ]);
+        return redirect()->route('pemasok')->with('success', 'Pemasok obat berhasil ditambahkan.');
     }
 }
