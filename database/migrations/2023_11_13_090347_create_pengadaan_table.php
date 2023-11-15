@@ -15,11 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('nama_obat')->unique();
             $table->date('tanggal_kadaluarsa')->default(null);
-            $table->enum('kategori_obat',['Obat Flu','Obat Pencernaan','Obat Penurun Panas'])->default('Obat Flu');
             $table->string('deskripsi_obat');
             $table->integer('stok_obat')->unsigned();
-            $table->date('tanggal_masuk_obat')->default(null);;
-            $table->string('pemasok_obat');
+            $table->date('tanggal_masuk_obat')->default(null);
+            $table->foreignId('kategori_obat_id')->constrained('kategori_obat');
+            $table->foreignId('pemasok_obat_id')->constrained('pemasok');
         });
     }
 

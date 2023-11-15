@@ -42,13 +42,17 @@ class UserController extends Controller
 
     public function PengadaanObat()
     {
-        return view('admin.Pengadaan');
+        $data_KategoriObat = KategoriObat::all();
+        $data_PemasokObat = Pemasok::all();
+        return view('admin.Pengadaan')->with('data_KategoriObatTable', $data_KategoriObat)->with('data_PemasokObatTable', $data_PemasokObat);
     }
 
     public function TabelPengadaanObat()
     {
+        $data_KategoriObat = KategoriObat::all();
+        $data_PemasokObat = Pemasok::all();
         $DataPengadaanObat = PengadaanObat::all();
-        return view('admin.TablePengadaan')->with('DataPengadaanObat', $DataPengadaanObat);
+        return view('admin.TablePengadaan')->with('DataPengadaanObat', $DataPengadaanObat)->with('data_KategoriObatTable', $data_KategoriObat)->with('data_PemasokObatTable', $data_PemasokObat);
     }
 
     public function KategoriObat()

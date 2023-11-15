@@ -17,7 +17,7 @@
                     </div>
                     <div class="form-group">
                         <label for="alamat_pemasok">Alamat :</label>
-                        <input type="date" class="form-control" name="AlamatPemasok">
+                        <textarea type="text" class="form-control" name="AlamatPemasok"></textarea>
                     </div>
                     <div class="form-group">
                         <label for="no_telepon">No Telepon :</label>

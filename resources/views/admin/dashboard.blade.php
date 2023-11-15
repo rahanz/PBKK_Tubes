@@ -1,5 +1,6 @@
 @extends('layouts.index')
 
+@section('JudulHalaman','Dashboard')
 @section('PageAcces','Dashboard')
 
 @section('dashboard')

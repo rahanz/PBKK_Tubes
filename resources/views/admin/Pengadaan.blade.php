@@ -23,9 +23,9 @@
                     <div class="form-group">
                         <label for="kategoriObat">Kategori :</label>
                         <select class="form-control" name="KategoriObat">
-                            <option value="Obat Flu">Obat Flu</option>
-                            <option value="Obat Pencernaan">Obat Pencernaan</option>
-                            <option value="Obat Penurun Panas">Obat Penurun Panas</option>
+                            @foreach ($data_KategoriObatTable as $dataKategori)                                
+                                <option value="{{ $dataKategori->id }}">{{ $dataKategori->kategori}}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="form-group">
@@ -42,7 +42,11 @@
                     </div>
                     <div class="form-group">
                         <label for="PemasokObat">Pemasok :</label>
-                        <input type="text" class="form-control" name="PemasokObat">
+                        <select class="form-control" name="PemasokObat">
+                            @foreach ($data_PemasokObatTable as $dataPemasok)                                
+                                <option value="{{ $dataPemasok->id }}">{{ $dataPemasok->pemasok_obat}}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <button type="submit" class="btn btn-primary">Tambah</button>
                 </form>

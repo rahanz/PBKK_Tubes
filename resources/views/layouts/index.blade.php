@@ -44,10 +44,7 @@
                             class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="{{ Route('dashboard') }}" class="nav-link ml-4 mr-4">Sistem Informasi Pengadaan Obat</a>
-                </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="{{ Route('dashboard') }}" class="nav-link">Home</a>
+                    <a href="{{ Route('pengadaan') }}" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
                     <form action="{{ route('logout') }}" method="post">
@@ -71,7 +68,7 @@
                     </div>
                     <div class="info">
                         @auth
-                            <a href="{{ Route('dashboard') }}" class="d-block">{{ auth()->user()->user_name }}</a>
+                            <a href="{{ Route('pengadaan') }}" class="d-block">{{ auth()->user()->user_name }}</a>
                         @endauth
                     </div>
                 </div>
@@ -94,13 +91,6 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                         data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
-                        <li class="nav-header">Dashboard</li>
-                        <li class="nav-item">
-                            <a href="{{ Route('dashboard' )}}" class="nav-link {{ Route::is('dashboard') ? 'active' : '' }}">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
-                                <p>Dashboard</p>
-                            </a>
-                        </li>
                         <li class="nav-header">Manajemen</li>
                         <li class="nav-item menu-open">
                             <a href="" class="nav-link">
@@ -164,7 +154,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Dashboard</h1>
+                            <h1 class="m-0">Sistem Informasi Pengadaan Obat</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
@@ -178,6 +168,7 @@
             <!-- /.content-header -->
 
             <!-- Main content -->
+            @include('pesan.Pesan')
             @yield('dashboard')
             @yield('Pemasok')
             @yield('Pengadaan')
@@ -209,8 +200,13 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
 
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    {{-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> --}}
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <!-- jQuery -->
-    <script src="{{ asset('AdminLTE-3/plugins/jquery/jquery.min.js') }}"></script>
+    {{-- <script src="{{ asset('AdminLTE-3/plugins/jquery/jquery.min.js') }}"></script> --}}
     <!-- jQuery UI 1.11.4 -->
     <script src="{{ asset('AdminLTE-3/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->

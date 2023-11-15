@@ -12,11 +12,23 @@ class PengadaanObat extends Model
     [
         'nama_obat',
         'tanggal_kadaluarsa',
-        'kategori_obat',
         'deskripsi_obat',
         'stok_obat',
         'tanggal_masuk_obat',
-        'pemasok_obat'
+        'pemasok_obat',
+        'kategori_obat_id',
+        'pemasok_obat_id'
     ];
+    protected $dates = ['tanggal_kadaluarsa','tanggal_masuk_obat'];
     protected $table = 'pengadaan';
+
+    public function kategoriObat()
+    {
+        return $this->belongsTo(KategoriObat::class, 'kategori_obat_id');
+    }
+
+    public function pemasokObat()
+    {
+        return $this->belongsTo(Pemasok::class, 'pemasok_obat_id');
+    }
 }

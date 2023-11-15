@@ -30,12 +30,55 @@
                                             <td>
                                                 <div class="btn-group" role="group">
                                                     <a href="#" class="btn btn-warning btn-sm mr-3"
-                                                        data-toggle="modal" data-target="#editModal"
-                                                        data-id="{{ $dataKategori->id }}">Edit Data</a>
-                                                    <button type="button" class="btn btn-danger btn-sm">Hapus Data</button>
+                                                        data-toggle="modal"
+                                                        data-target="#editModal{{ $dataKategori->id }}">Edit Data</a>
+                                                    <form action="{{ route('delete_kategori', $dataKategori->id) }}"
+                                                        method="POST" class="d-inline">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-danger btn-sm"
+                                                            onclick="return confirm('Are you sure?')">Hapus Data</button>
+                                                    </form>
                                                 </div>
                                             </td>
                                         </tr>
+
+                                        <div class="modal fade" id="editModal{{ $dataKategori->id }}" tabindex="-1"
+                                            role="dialog" aria-labelledby="editModalLabel{{ $dataKategori->id }}"
+                                            aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="editModalLabel{{ $dataKategori->id }}">
+                                                            Edit Data Kategori Obat</h5>
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <form action="{{ Route('edit_kategori', $dataKategori->id) }}"
+                                                            method="post">
+                                                            @csrf
+                                                            @method('PUT')
+
+                                                            <div class="form-group">
+                                                                <label for="edit_kategori{{ $dataKategori->id }}">Kategori Obat</label>
+                                                                <input type="text" class="form-control" id="edit_kategori{{ $dataKategori->id }}" name="edit_kategori" value="{{ $dataKategori->kategori }}">
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <label
+                                                                    for="edit_deskripsi{{ $dataKategori->id }}">Deskripsi</label>
+                                                                <textarea class="form-control" id="edit_deskripsi{{ $dataKategori->id }}" name="edit_deskripsi">{{ $dataKategori->deskripsi }}</textarea>
+                                                            </div>
+
+                                                            <button type="submit" class="btn btn-primary">Simpan</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     @endforeach
                                 </tbody>
                                 <tfoot>
@@ -55,7 +98,4 @@
             </div> <!-- row -->
         </div> <!-- container-fluid -->
     </section>
-
-    {{-- Modal --}}
-
 @endsection
