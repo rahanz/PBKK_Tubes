@@ -102,40 +102,40 @@
                                 <li class="nav-header ml-3">Pengadaan</li>
                                 <li class="nav-item">
                                     <a href="{{ Route('pengadaan') }}" class="nav-link {{ Route::is('pengadaan') ? 'active' : '' }}">
-                                        <i class="nav-icon fas fa-shopping-basket"></i>
+                                        <i class="nav-icon fas fa-pills"></i>
                                         <p>Pengadaan Obat</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ Route('tabel_pengadaan') }}" class="nav-link {{ Route::is('tabel_pengadaan') ? 'active' : '' }}">
                                         <i class="nav-icon fas fa-shopping-basket"></i>
-                                        <p>Table Pengadaan</p>
+                                        <p>Lihat Obat</p>
                                     </a>
                                 </li>
                                 <li class="nav-header ml-3">Kategori</li>
                                 <li class="nav-item">
                                     <a href="{{ Route('kategori_obat') }}" class="nav-link {{ Route::is('kategori_obat') ? 'active' : '' }}">
-                                        <i class="nav-icon fas fa-shopping-basket"></i>
-                                        <p>Tambah Kategori</p>
+                                        <i class="nav-icon fas fa-plus"></i>
+                                        <p>Kategori</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ Route('tabel_kategori') }}" class="nav-link {{ Route::is('tabel_kategori') ? 'active' : '' }}">
-                                        <i class="nav-icon fas fa-shopping-basket"></i>
-                                        <p>Table Kategori Obat</p>
+                                        <i class="nav-icon fas fa-tags"></i>
+                                        <p>Lihat Kategori Obat</p>
                                     </a>
                                 </li>
                                 <li class="nav-header ml-3">Pemasok</li>
                                 <li class="nav-item">
                                     <a href="{{ Route('pemasok') }}" class="nav-link {{ Route::is('pemasok') ? 'active' : '' }}">
-                                        <i class="nav-icon fas fa-industry"></i>
-                                        <p>Tambah Pemasok</p>
+                                        <i class="nav-icon fas fa-truck"></i>
+                                        <p>Pemasok</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ Route('TablePemasok') }}" class="nav-link {{ Route::is('TablePemasok') ? 'active' : '' }}">
-                                        <i class="nav-icon fas fa-industry"></i>
-                                        <p>Pemasok Obat</p>
+                                        <i class="nav-icon fas fa-eye"></i>
+                                        <p>Lihat Pemasok</p>
                                     </a>
                                 </li>
                             </ul>
