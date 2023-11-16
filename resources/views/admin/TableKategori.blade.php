@@ -31,13 +31,13 @@
                                                 <div class="btn-group" role="group">
                                                     <a href="#" class="btn btn-warning btn-sm mr-3"
                                                         data-toggle="modal"
-                                                        data-target="#editModal{{ $dataKategori->id }}">Edit Data</a>
+                                                        data-target="#editModal{{ $dataKategori->id }}"><i class="fas fa-edit"></i></a>
                                                     <form action="{{ route('delete_kategori', $dataKategori->id) }}"
                                                         method="POST" class="d-inline">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button type="submit" class="btn btn-danger btn-sm"
-                                                            onclick="return confirm('Are you sure?')">Hapus Data</button>
+                                                            onclick="return confirm('Are you sure?')"><i class="fas fa-trash"></i></button>
                                                     </form>
                                                 </div>
                                             </td>

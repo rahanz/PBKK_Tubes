@@ -15,7 +15,7 @@
             <div class="col-md-6">
                 <div class="card p-4 border rounded shadow border-primary">
                     <h2 class="mb-4 text-center text-primary">Login</h2>
-                    <form action="{{ route('login') }}" method="post">
+                    <form action="{{ Route('login') }}" method="post">
                         @csrf
                         <div class="form-group">
                             <label for="UserName">Username :</label>

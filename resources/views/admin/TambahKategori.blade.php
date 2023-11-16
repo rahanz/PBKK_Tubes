@@ -10,7 +10,7 @@
                 <form method="POST" action="{{ route('InputKategori') }}">
                     @csrf
                     <div class="form-group">
-                        <label for="nama_kategori">Nama Kategori Obat :</label>
+                        <label for="nama_kategori">Kategori Obat :</label>
                         <input type="text" class="form-control" name="nama_kategori">
                     </div>
                     <div class="form-group">
