@@ -19,7 +19,6 @@ Route::get('/login', [UserController::class, 'view'])->name('login');
 Route::post('/login', [UserController::class, 'login']);
 
 Route::middleware(['auth'])->group(function () {
-    // Route::get('/dashboard', [UserController::class, 'dashboard'])->name('dashboard');
     Route::post('/logout', [UserController::class, 'logout'])->name('logout');
     Route::get('/',[UserController::class, 'PengadaanObat'])->name('pengadaan');
     Route::post('/pengadaan', [InputController::class, 'input_pengadaan'])->name('InputPengadaan');
