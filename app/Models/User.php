@@ -13,11 +13,11 @@ class User extends Authenticatable
     public $timestamps = false;
     protected $fillable =
     [
-        'user_id',
         'user_name',
         'role',
         'email',
-        'password'
+        'password',
+        'foto_profil'
     ];
     protected $table = 'users';
 }
