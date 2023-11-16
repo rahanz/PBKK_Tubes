@@ -19,8 +19,7 @@ class UserController extends Controller
         $credentials = $request->only('User_Name', 'password');
 
         if (Auth::attempt($credentials)) {
-            // Jika autentikasi berhasil
-            return redirect()->intended('dashboard'); // Sesuaikan dengan rute dashboard Anda
+            return redirect()->intended('/');
         } else {
             // Jika autentikasi gagal
             return redirect()->back()->with('error', 'Login failed. Check your username and password.');
@@ -35,45 +34,48 @@ class UserController extends Controller
         return redirect('login');
     }
 
-    public function dashboard()
-    {
-        return view('admin.dashboard');
-    }
-
     public function PengadaanObat()
     {
+        $user = Auth::user();
+
         $data_KategoriObat = KategoriObat::all();
         $data_PemasokObat = Pemasok::all();
-        return view('admin.Pengadaan')->with('data_KategoriObatTable', $data_KategoriObat)->with('data_PemasokObatTable', $data_PemasokObat);
+        return view('admin.Pengadaan', ['user'=>$user])->with('data_KategoriObatTable', $data_KategoriObat)->with('data_PemasokObatTable', $data_PemasokObat);
     }
 
     public function TabelPengadaanObat()
     {
+        $user = Auth::user();
+
         $data_KategoriObat = KategoriObat::all();
         $data_PemasokObat = Pemasok::all();
         $DataPengadaanObat = PengadaanObat::all();
-        return view('admin.TablePengadaan')->with('DataPengadaanObat', $DataPengadaanObat)->with('data_KategoriObatTable', $data_KategoriObat)->with('data_PemasokObatTable', $data_PemasokObat);
+        return view('admin.TablePengadaan', ['user'=>$user])->with('DataPengadaanObat', $DataPengadaanObat)->with('data_KategoriObatTable', $data_KategoriObat)->with('data_PemasokObatTable', $data_PemasokObat);
     }
 
     public function KategoriObat()
     {
-        return view('admin.TambahKategori');
+        $user = Auth::user();
+        return view('admin.TambahKategori', ['user'=>$user]);
     }
 
     public function TabelKategoriObat()
     {
+        $user = Auth::user();
         $KategoriObat = KategoriObat::all();
-        return view('admin.TableKategori')->with('KategoriObat', $KategoriObat);
+        return view('admin.TableKategori', ['user'=>$user])->with('KategoriObat', $KategoriObat);
     }
 
     public function PemasokObat()
     {
-        return view('admin.Pemasok');
+        $user = Auth::user();
+        return view('admin.Pemasok', ['user'=>$user]);
     }
 
     public function TabelPemasokObat()
     {
+        $user = Auth::user();
         $DataPemasokObat = Pemasok::all();
-        return view ('admin.TablePemasok')->with('DataPemasok', $DataPemasokObat);
+        return view ('admin.TablePemasok', ['user'=>$user])->with('DataPemasok', $DataPemasokObat);
     }
 }

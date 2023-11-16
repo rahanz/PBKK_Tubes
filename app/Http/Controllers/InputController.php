@@ -92,8 +92,13 @@ class InputController extends Controller
         $request->validate
         ([
             'nama_kategori' => 'required|unique:kategori_obat,kategori',
-            'deskripsi_kategori' => 'required
-        ']);
+            'deskripsi_kategori' => 'required'
+        ],
+        [
+            'nama_kategori.required' => 'kategori obat tidak boleh kosong',
+            'nama_kategori.unique' => 'kategori obat sudah ada dalam database',
+            'deskripsi_kategori.required' => 'deskripsi tidak boleh kosong'
+        ]);
         KategoriObat::create
         ([
             'kategori' => $request->nama_kategori,
@@ -137,7 +142,12 @@ class InputController extends Controller
         ([
             'PemasokObat' => 'required|unique:pemasok,pemasok_obat',
             'AlamatPemasok' => 'required',
-            'NoTelepon' => 'required|integer|min:0'
+            'NoTelepon' => 'required|min:0'
+        ],
+        [
+            'PemasokObat.required' => 'pemasok tidak boleh kosong',
+            'PemasokObat.unique' => 'data pemasok sudah ada dalam database',
+            'NoTelepeon.required' => 'no telepeon tidak boleh kosong'
         ]);
         Pemasok::create
         ([
@@ -154,7 +164,7 @@ class InputController extends Controller
         ([
             'edit_pemasok' => 'required',
             'edit_alamat_pemasok' => 'required',
-            'edit_telepon_pemasok' => 'required|integer|min:0'
+            'edit_telepon_pemasok' => 'required|min:0'
         ],
         [
             'edit_pemasok.required' => 'pemasok tidak boleh kosong',
