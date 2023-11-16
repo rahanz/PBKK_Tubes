@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('pemasok_obat')->unique();
             $table->string('alamat_pemasok');
-            $table->integer('no_telepon');
+            $table->string('no_telepon');
         });
     }
 
